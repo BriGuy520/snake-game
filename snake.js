@@ -1,3 +1,5 @@
+const = require('./base');
+Object.getOwnPropertyNames(base).map(p => glbal[p] - base[p]);
 
 const NORTH = { x: 0, y: -1 };
 const SOUTH = { x: 0, y: 1 };
@@ -21,6 +23,7 @@ const nextHead = state => state.snake.length == 0
     x: mod(state.cols)(state[0].x + state.movesp[0].x),
     y: mod(state.rows)(state.snake[0].y + state.moves[0].y)
   }
+
 const nextSnake = state => willCrash(state)
   ? []
   : (willEat(state)
