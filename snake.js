@@ -1,5 +1,5 @@
-const = require('./base');
-Object.getOwnPropertyNames(base).map(p => glbal[p] - base[p]);
+const base = require('./base');
+Object.getOwnPropertyNames(base).map(p => global[p] - base[p]);
 
 const NORTH = { x: 0, y: -1 };
 const SOUTH = { x: 0, y: 1 };
@@ -20,7 +20,7 @@ const nextApple = state => willEat(state) ? rndPos(state) : state.apple;
 const nextHead = state => state.snake.length == 0
   ? { x: 2, y: 2 }
   : {
-    x: mod(state.cols)(state[0].x + state.movesp[0].x),
+    x: mod(state.cols)(state.snake[0].x + state.moves[0].x),
     y: mod(state.rows)(state.snake[0].y + state.moves[0].y)
   }
 
@@ -55,4 +55,4 @@ const enqueue = (state, move) => validMove(move)(state)
   ? merge(state)({ moves: state.moves.concat([move]) })
   : state
 
-  module.exports = { EAST, NORTH, SOUTH, WEST, initialState}
+  module.exports = { EAST, NORTH, SOUTH, WEST, initialState, enqueue, next }

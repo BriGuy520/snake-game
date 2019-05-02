@@ -19,13 +19,13 @@ const draw = () => {
   state.snake.map(p => ctx.fillRect(x(p.x), y(p.y), x(1), y(1)));
 
   // draw apple
-  ctx.fillStyle = 'rgb(0, 200, 50)';
+  ctx.fillStyle = 'rgb(255, 50, 0)';
   ctx.fillRect(x(state.apple.x), y(state.apple.y), x(1), y(1));
 
   // add crash
 if(state.snake.length == 0){
   ctx.fillStyle = 'rgb(255, 0, 0)';
-  ctx.fillRect(0, 0, canvas.clientWidth, canvas.height);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 }
 
